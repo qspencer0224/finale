@@ -92,6 +92,24 @@ code {
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
 }
+.home{
+  border: solid black;
+  display: flex;
+  height: 500px;
+}
+.leftnav{
+  border: solid blue;
+  width: 20%;
+  margin: 10px;
+}
+.mid{
+  border: solid red;
+  width: 90%;
+  margin: 10px;
+}
+h1{
+  font-family: sans-serif;
+}
 
 p.error-message {
   color: var(--orange);
