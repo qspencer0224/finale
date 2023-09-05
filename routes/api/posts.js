@@ -4,13 +4,13 @@ const Post = require('../../models/Post')
 
 //CREATE ROUTE for Posts/Tasks
 router.post('/', async (req, res) =>{
-    await Post.create(req.body)
-    res.send('created entry')
+    const post = await Post.create(req.body)
+    res.json(post)
 })
 //UPDATE ROUTE for Posts/Tasks
 router.get('edit/:id', async (req, res) =>{
     const post = await Post.findById(req.params.id)
-    res.render('Edit', {current: post})
+    // res.render('Edit', {current: post})
 })
 //--------------------------------------
 

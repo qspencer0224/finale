@@ -25,7 +25,12 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
+  background-image: url('https://media.tenor.com/Xfb1PppeYHoAAAAd/come-in-kanye-west.gif');
+  background-size: cover; /* Adjust as needed */
+  background-color: #00000023; /* Background color if texture is partially transparent */
+  background-blend-mode: overlay; /* Blend mode for the noise */
+  opacity: 0.8; /* Adjust opacity as needed */
+  /* Other styles for your content */
   padding: 2vmin;
   height: 100vh;
 }

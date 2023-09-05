@@ -1,19 +1,23 @@
 import React, { useState } from 'react'
-
+import axios from 'axios'
+import Form from '../../components/Form/Form'
 
 function Home() {
     const [todoList, setTodoList] = useState([])
-    const [newTask, setNewTask] = useState("")
+    const [newTask, setNewTask] = useState({post: ''})
     const [active, setActive] = useState(null)
 
     const handleChange = (event) =>{
         setNewTask(event.target.value)
     }
 
-    const addTask = () =>{
+    const addTask = async () =>{
         const newTodoList = [...todoList, newTask];
         setTodoList(newTodoList);
-        const entry = axios.get()
+        const response = await axios.post('/api/posts', newTask);
+        const data = await response.json()
+        
+
     }
     return (
         <div>
@@ -29,13 +33,16 @@ function Home() {
                             return(
                                 <div onClick={() =>{setActive(task)}}>
                                     {task}
+                                    <button>Delete</button>
                                 </div>
+                                
                             )
                         })}
                     </div>
                 </div>
                 <div className="mid">
                     {active? <h1>{active}</h1> : null}
+                    <Form newTask={newTask} setNewTask={setNewTask} />
                 </div>
                 <div className="right"></div>
             </div>
