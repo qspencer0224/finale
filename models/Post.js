@@ -2,8 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
-    post: {type: String, required: true}
-})
+    post: {type: String, required: true},
+    subject: {type: String, required: true}
+}, 
+    {timestamp: true})
 
 const Post = mongoose.model('Post', postSchema)
 

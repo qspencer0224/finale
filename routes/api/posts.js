@@ -3,9 +3,9 @@ const router = express.Router();
 const Post = require('../../models/Post')
 
 //CREATE ROUTE for Posts/Tasks
-router.post('/new', async (req, res) =>{
+router.post('/', async (req, res) =>{
     await Post.create(req.body)
-    res.redirect('/')
+    res.send('created entry')
 })
 //UPDATE ROUTE for Posts/Tasks
 router.get('edit/:id', async (req, res) =>{

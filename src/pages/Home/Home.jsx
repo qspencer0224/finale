@@ -1,50 +1,43 @@
 import React, { useState } from 'react'
-import Marquee from 'react-fast-marquee'
-import { Link } from 'react-router-dom'
 
-function Home(props) {
+
+function Home() {
     const [todoList, setTodoList] = useState([])
     const [newTask, setNewTask] = useState("")
+    const [active, setActive] = useState(null)
 
-    const handleChange = (event) => {
+    const handleChange = (event) =>{
         setNewTask(event.target.value)
     }
 
-    const addTask = () => {
+    const addTask = () =>{
         const newTodoList = [...todoList, newTask];
         setTodoList(newTodoList);
+        const entry = axios.get()
     }
     return (
         <div>
             <h1>What's New?</h1>
             <div className='home'>
-                <div className="leftnav">
+                <div className="left">
                     <div className='addTask'>
                         <input onChange={handleChange} />
                         <button onClick={addTask}>Add</button>
                     </div>
-                    {/* Can i assign a value to my useState value from the props that I- */}
-                    {/* -passed down from my server.js??? */}
                     <div className="list">
-                        {/* this is props coming from my server.js */}
-                        <Link to={`/edit/${props.currentTask.id}`}>
-                            {/* this is coming from my useState variable */}
-                            {todoList.map((task, i) => {
-                                return (
-                                    <div key={i}>
-                                        {task}
-                                    </div>
-                                )
-                            })}
-                        </Link>
-                        <form action=''></form>
+                        {todoList.map((task) =>{
+                            return(
+                                <div onClick={() =>{setActive(task)}}>
+                                    {task}
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
                 <div className="mid">
-                    <Marquee>
-                        <div>* MY MEDIA *</div>
-                    </Marquee>
+                    {active? <h1>{active}</h1> : null}
                 </div>
+                <div className="right"></div>
             </div>
         </div>
 
