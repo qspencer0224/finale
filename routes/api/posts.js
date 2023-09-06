@@ -8,9 +8,9 @@ router.post('/', async (req, res) =>{
     res.json(post)
 })
 //UPDATE ROUTE for Posts/Tasks
-router.get('edit/:id', async (req, res) =>{
-    const post = await Post.findById(req.params.id)
-    // res.render('Edit', {current: post})
+router.put('/edit/:id', async (req, res) =>{
+    const post = await Post.findByIdAndUpdate(req.params.id, req.body)
+    res.json(post)
 })
 //--------------------------------------
 
@@ -21,7 +21,7 @@ router.get('/', async (req, res) =>{
     const allTasks = await Post.find({})
     //Passing "task" props to Home component to represent each task
     //Will later be used to grab and edit/read each task individually
-    res.render('Home', {currentTask: allTasks})
+    res.json(allTasks)
 })
 
 module.exports = router

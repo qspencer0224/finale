@@ -25,8 +25,8 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('https://media.tenor.com/Xfb1PppeYHoAAAAd/come-in-kanye-west.gif');
-  background-size: cover; /* Adjust as needed */
+  /* background-image: url('https://media0.giphy.com/media/x7LXSnj8Sxmxi/giphy-downsized-large.gif'); */
+  background-size: contain; /* Adjust as needed */
   background-color: #00000023; /* Background color if texture is partially transparent */
   background-blend-mode: overlay; /* Blend mode for the noise */
   opacity: 0.8; /* Adjust opacity as needed */
@@ -100,7 +100,6 @@ code {
 .home{
   border: solid black;
   display: flex;
-  height: 500px;
 }
 .left, .right{
   border: solid blue;
@@ -117,6 +116,9 @@ code {
 }
 #entry{
   width: 100%;
+}
+#task{
+  font-family: sans-serif;
 }
 h1{
   font-family: sans-serif;

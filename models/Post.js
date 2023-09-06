@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
     post: {type: String, required: true},
-    subject: {type: String, required: true}
+    subject: {type: String, required: false}
 }, 
     {timestamp: true})
 
