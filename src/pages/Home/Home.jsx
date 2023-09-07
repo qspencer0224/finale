@@ -10,6 +10,7 @@ function Home() {
     const [newTask, setNewTask] = useState({ post: '' })
     // Store the currently active task
     const [active, setActive] = useState(null)
+    const [count, setCount] = useState(0)
 
     // Event handler for input change
     const handleChange = (event) => {
@@ -29,22 +30,31 @@ function Home() {
     }
 
     // Function to fetch tasks from the server
-    const getTask = async () =>{
+    const getTask = async () => {
         // Send a GET request to the '/api/posts' endpoint using Axios
         const res = await axios.get('/api/posts')
         // Update the todoList state with the data received from the server
         setTodoList(res.data)
     }
 
-
+    const handleDelete = async (e, id) =>{
+        e.preventDefault()
+        try {
+            await axios.delete(`/api/posts/delete/${id}`)
+            setCount(prev => prev + 1)
+        } catch (err) {
+            console.error(err.message)
+        }
+    }
 
     // Call the getTask function when the component mounts
-    useEffect(() =>{
+    useEffect(() => {
         getTask()
-    }, [])
+    }, [count])
+
     return (
         <div>
-            <h1>What's New?</h1>
+            <h1 id='wassup'>What's New?</h1>
             <div className='home'>
                 <div className="left">
                     <div className='addTask'>
@@ -56,26 +66,26 @@ function Home() {
                     <div className="list">
                         {/* Map through the todoList and display tasks */}
                         {/* Check if todoList has at least one item */}
-                        {todoList.length > 0? todoList.map((task) => {
+                        {todoList.length > 0 ? todoList.map((task) => {
                             return (
                                 // If true (todoList has items), execute the code inside this block
-                                
+
                                 <div id='task' onClick={() => { setActive(task) }}>
                                     {/* Display the task and a delete button */}
                                     {task.post}
-                                    <button>Delete</button>
+                                    <button onClick={(e)=>{handleDelete(e, task._id)}}>delete</button>
                                 </div>
 
                             )
-                        // If false (todoList is empty), execute the code inside this block
-                        }): null}
+                            // If false (todoList is empty), execute the code inside this block
+                        }) : null}
                     </div>
                 </div>
                 <div className="mid">
                     {/* Display the active task */}
                     {active ? <h1>{active.post}</h1> : null}
                     {/* Render the Form component with active task and setActive function */}
-                    <Form active={active} setActive={setActive}/>
+                    <Form active={active} setActive={setActive} />
                 </div>
                 <div className="right"></div>
             </div>

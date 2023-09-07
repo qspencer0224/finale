@@ -16,18 +16,17 @@
   font-family: sans-serif;
   font-weight: bold;
   text-decoration: none;
-  color: #ff0000;
+  color: black;
 }
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-image: url('https://media0.giphy.com/media/x7LXSnj8Sxmxi/giphy-downsized-large.gif'); */
-  background-size: contain; /* Adjust as needed */
-  background-color: #00000023; /* Background color if texture is partially transparent */
+  background-color: #7f7183b6;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/f2/3D_Brown_noise.gif');
+  background-size: cover; /* Adjust as needed */
   background-blend-mode: overlay; /* Blend mode for the noise */
   opacity: 0.8; /* Adjust opacity as needed */
   /* Other styles for your content */
@@ -98,18 +97,37 @@ code {
   border-radius: 1vmin;
 }
 .home{
-  border: solid black;
+  border-width: 5px;
   display: flex;
+  background-image: url("https://i.pinimg.com/originals/c8/a7/1e/c8a71e63e5eaa36d945a4d627822fa3e.gif");
+  background-size: 100% 100%;
 }
-.left, .right{
-  border: solid blue;
+#wassup{
+  font-family: sans-serif;
+  font-size: 40px;
+  font-style: italic;
+  color: whitesmoke;
+}
+.left{
+  /* border: solid blue */
+  /* background-image: url('https://media0.giphy.com/media/PCbbTEkATqZM4xYanM/200w.gif?cid=6c09b952gt1z3xkbcrhxz6409itxr4c22k2f0txew552gm5i&ep=v1_gifs_search&rid=200w.gif&ct=g'); */
+  background-size: 100% 100%;
+  width: 20%;
+  margin: 10px;
+}
+.right{
+  background-image: url("https://media.tenor.com/67oUgYIbWDAAAAAd/sadeisthegoat.gif");
+  background-size: 100%;
   width: 20%;
   margin: 10px;
 }
 .mid{
-  border: solid red;
+  border-width: 5px;
   width: 90%;
   margin: 10px;
+  display: grid;
+  background-image: url('https://i.redd.it/660hm0ehhwt61.gif');
+  background-size: 100% 100%;
 }
 #new{
   border: solid red;
@@ -117,7 +135,34 @@ code {
 #entry{
   width: 100%;
 }
+.addTask{
+  display: flex;
+  margin: 5px;
+}
+.midinput{
+  display: block;
+  width: 100%;
+  /* align-items: center; */
+  /* width: 100%; */
+}
+#midinput{
+  margin: 10px;
+  width: 80%;
+  height: 200px;
+  text-decoration: overline;
+  text-align: top;
+}
 #task{
+  border: outset #573e4d4b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  margin-top: 5px;
+  color: black;
+}
+span{
+  color: red;
   font-family: sans-serif;
 }
 h1{
@@ -145,15 +190,18 @@ label {
 input {
   padding: 1vmin;
   font-size: 2vmin;
-  border: .1vmin solid var(--tan-3);
-  border-radius: .5vmin;
-  color: var(--text-dark);
+  border: .1vmin outset var(--tan-3);
+  border-radius: 6px;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.336);
+  font-family: sans-serif;
   background-image: none !important; /* prevent lastpass */
   outline: none;
+  cursor: pointer;
 }
 
 input:focus {
-  border-color: var(--orange);
+  border-color: rgba(245, 245, 245, 0.575);
 }
 
 button, a.button {
